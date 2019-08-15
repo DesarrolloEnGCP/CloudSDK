@@ -47,3 +47,9 @@ gcloud config configurations activate $(cat config_activa)
 ```bash
 gcloud config list
 ```
+
+## Borrar configuraciones de prueba config1 y config2 (ATENCION: revisar y confirmar)
+```bash
+for conf in $(gcloud config configurations list --filter="IS_ACTIVE=False" --format 'value(NAME)')  ; do gcloud config configurations delete $conf ; done
+```
+
